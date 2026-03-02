@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const authLimit = require("./middleware/ratelimit");
+const authLimit = require("../middleware/ratelimit");
 const authMiddleware = require("../middleware/authmiddleware");
 const { signup, login } = require("../controllers/authcontroller");
 const verifyOTP = require("../controllers/otpcontroller");
