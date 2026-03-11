@@ -96,7 +96,7 @@ PORT=5000
 
 DB_HOST=localhost
 DB_USER=root
-DB_PASSWORD=yourpassword
+DB_PASSWORD=""
 DB_NAME=auth_db
 
 JWT_SECRET=supersecretkey
