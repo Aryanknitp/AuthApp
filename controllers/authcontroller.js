@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const { hashPassword, comparePassword } = require("../utils/hash");
 const generateOTP = require("../utils/otp");
 const sendOTP = require("../utils/mailer");
-
 // signup logic //
 exports.signup = async (req, res) => {
  try{
@@ -14,17 +13,15 @@ exports.signup = async (req, res) => {
   if(password.length<6){
     return res.status(400).json({message:"Password must be at least 6 character"});
   }
-
   const cleanName = name.trim();
   const cleanEmail = email.trim().toLowerCase();
   const [existingUser] = await db.execute(
     "SELECT id FROM users WHERE email =?",
      [cleanEmail]
-    );
+    ); 
    if(existingUser.length>0){
     return res.status(400).json({message:"Email already registered"});
    }
-
    //Password Hash ho raha hai
  const hashedpass = await hashPassword(password);
  // generate OTP
